@@ -9,11 +9,19 @@ import {
 } from "react-icons/ai";
 import { BsFillMoonFill, BsSun } from "react-icons/bs";
 import logo from "./images/logo.png";
-import { Link } from "react-router-dom";
-
+import { NavLink } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 
 function Navbar(props) {
+  //assigning location variable
+  const location = useLocation();
+
+  //destructuring pathname from location
+  const { pathname } = location;
+
+  //Javascript split method to get the name of the path in array
+  const splitLocation = pathname.split("/");
 
   const {  totalUniqueItems} =
     useCart();
@@ -32,6 +40,7 @@ function Navbar(props) {
     }
   };
 
+  
 
   return (
     <div className="">
@@ -46,25 +55,25 @@ function Navbar(props) {
           </label>
 
           <ul className="hidden  sm:flex ml-8 mt-1 text-lg">
-            <Link to="/" className="mx-6">
-              <li>Home </li>
-            </Link>
-            <Link to="/collection" className="mx-6">
-              <li>Collection </li>
-            </Link>
-            <Link to="/login" className="mx-6">
-              <li>My-Profile </li>
-            </Link>
+            <NavLink  to="/home" className="mx-6">
+              <li className={`hover:border-b-4 border-orange-300 ${splitLocation[1] === "home" ? "border-b-4" : ""}`}>Home </li>
+            </NavLink>
+            <NavLink to="/collection" className="mx-6">
+              <li className={`hover:border-b-4 border-orange-300 active:border-b-4 ${splitLocation[1] === "collection" ? "border-b-4" : ""} `}>Collection </li>
+            </NavLink>
+            <NavLink to="/login" className="mx-6">
+              <li className={`hover:border-b-4 border-orange-300 active:border-b-4 ${splitLocation[1] === "login" ? "border-b-4" : ""} `}>My-Profile </li>
+            </NavLink>
           </ul>
 
           
             <li className="ml-auto mx-6 mt-2 relative cursor-pointer">
-              <Link to="/cart">
+              <NavLink to="/cart">
             <AiOutlineShoppingCart size={25} />
             <span className="absolute -top-2 ml-5 z-10 bg-orange-300 rounded-full px-1">
               {totalUniqueItems}
             </span>
-            </Link>
+            </NavLink>
             </li>
           
 
@@ -89,15 +98,15 @@ function Navbar(props) {
             props.mode === "dark" ? "text-white bg-gray-600" : "bg-gray-200"
           }`}
         >
-          <Link to="/" className="ml-auto font-semibold text-xl">
+          <NavLink to="/home" className="ml-auto font-semibold text-xl">
             <li  onClick={responsiveMenu}>Home </li>
-          </Link>
-          <Link to="/collection" className="ml-auto font-semibold text-xl">
+          </NavLink>
+          <NavLink to="/collection" className="ml-auto font-semibold text-xl">
             <li  onClick={responsiveMenu}>Collection </li>
-          </Link>
-          <Link to="/login" className="ml-auto font-semibold text-xl">
+          </NavLink>
+          <NavLink to="/login" className="ml-auto font-semibold text-xl">
             <li  onClick={responsiveMenu}>My-Profile </li>
-          </Link>
+          </NavLink>
         </ul>
       </nav>
     </div>
