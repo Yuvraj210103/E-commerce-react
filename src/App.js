@@ -49,7 +49,7 @@ function App() {
      <Routes>
      <Route  path="/productDetails" element={<ProductDetails mode={Mode} myFun={setshowSlide}/>} />
      
-     <Route  path="/home" element={<Products mode={Mode} myFun={setshowSlide} myFun2={setshowFooter} />} />
+     <Route  path="/" element={<Products mode={Mode} myFun={setshowSlide} myFun2={setshowFooter} />} />
      <Route  path="/cart" element={<Cart mode={Mode} myFun={setshowSlide} myFun2={setshowFooter}/>}/>
      <Route  path="/collection" element={<Collection mode={Mode} myFun={setshowSlide}/>}/>
      <Route  path="/login" element={<Login mode={Mode} myFun={setshowSlide} myFun2={setshowFooter}/>}/>

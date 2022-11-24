@@ -55,8 +55,8 @@ function Navbar(props) {
           </label>
 
           <ul className="hidden  sm:flex ml-8 mt-1 text-lg">
-            <NavLink  to="/home" className="mx-6">
-              <li className={`hover:border-b-4 border-orange-300 ${splitLocation[1] === "home" ? "border-b-4" : ""}`}>Home </li>
+            <NavLink  to="/" className="mx-6">
+              <li className={`hover:border-b-4 border-orange-300 ${splitLocation[1] === "" ? "border-b-4" : ""}`}>Home </li>
             </NavLink>
             <NavLink to="/collection" className="mx-6">
               <li className={`hover:border-b-4 border-orange-300 active:border-b-4 ${splitLocation[1] === "collection" ? "border-b-4" : ""} `}>Collection </li>
@@ -98,7 +98,7 @@ function Navbar(props) {
             props.mode === "dark" ? "text-white bg-gray-600" : "bg-gray-200"
           }`}
         >
-          <NavLink to="/home" className="ml-auto font-semibold text-xl">
+          <NavLink to="/" className="ml-auto font-semibold text-xl">
             <li  onClick={responsiveMenu}>Home </li>
           </NavLink>
           <NavLink to="/collection" className="ml-auto font-semibold text-xl">
