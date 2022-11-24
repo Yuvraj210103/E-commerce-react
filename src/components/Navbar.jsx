@@ -35,7 +35,7 @@ function Navbar(props) {
 
   return (
     <div className="">
-      <nav className="flex flex-col fixed  top-0 min-w-full shadow-md z-50">
+      <nav className="flex flex-col fixed  top-0  min-w-full shadow-md z-50">
         <ul
           className={`flex flex-row p-3  z-30 ${
             props.mode === "dark" ? "text-white bg-gray-500" : "bg-gray-200"
@@ -85,17 +85,17 @@ function Navbar(props) {
 
         
         <ul
-          className={`flex flex-col ml-auto space-y-3 bg-slate-100 transition-all w-full p-3 z-10 ${Margin} sm:hidden text-lg ${
+          className={`flex flex-col ml-auto space-y-3 bg-slate-100 transition-all w-full p-3 z-10 ${Margin} duration-500 sm:hidden text-lg ${
             props.mode === "dark" ? "text-white bg-gray-600" : "bg-gray-200"
           }`}
         >
-          <Link to="/" className="ml-auto">
+          <Link to="/" className="ml-auto font-semibold text-xl">
             <li  onClick={responsiveMenu}>Home </li>
           </Link>
-          <Link to="/collection" className="ml-auto">
+          <Link to="/collection" className="ml-auto font-semibold text-xl">
             <li  onClick={responsiveMenu}>Collection </li>
           </Link>
-          <Link to="/login" className="ml-auto">
+          <Link to="/login" className="ml-auto font-semibold text-xl">
             <li  onClick={responsiveMenu}>My-Profile </li>
           </Link>
         </ul>

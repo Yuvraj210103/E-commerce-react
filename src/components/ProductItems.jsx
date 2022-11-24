@@ -7,6 +7,7 @@ import {
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 
 const Msg = () => (
@@ -44,16 +45,17 @@ theme="light"
   
 
   return (
+    <>
     
-    
+    <ScrollAnimation animateIn="fadeIn"  >
     <div className={`bg-white shadow-lg rounded-2xl p-3 flex flex-col  transition-all `}>
-     
+    
         <div className='product'>
         <Link to="/productDetails" state={{from:props.id}}>
           <img src={props.image} alt="Loading" className='w-36 h-40 mx-auto' />
          
-          <p className="title font-semibold text-lg my-3">{props.title.slice(0,25)}...</p>
-          <p className='my-3 h-20 '>{props.description.slice(0,70)}...</p>
+          <p className="title font-semibold text-lg h-20 my-3">{props.title.slice(0,25)}...</p>
+          <p className='my-3 h-20 hidden sm:inline-flex '>{props.description.slice(0,70)}...</p>
           <p className='my-3'>Price - $ <b>{props.price}</b></p>
         </Link>
          <h1 onClick={notify}><button className=' bg-black text-white text-center w-full rounded-xl my-3 p-2 md:hover:scale-95' id='add' onClick={()=> addItem(props.item)} >
@@ -65,7 +67,8 @@ theme="light"
         </div>
         
     </div>
-
+    </ScrollAnimation>
+    </>
      
   )
 }
